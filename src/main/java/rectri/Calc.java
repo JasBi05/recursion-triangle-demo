@@ -8,6 +8,7 @@ public class Calc
 
     private Scanner scanner; 
     private String input;
+    private Sierp sierp;
 
 
     public Calc()
@@ -45,9 +46,9 @@ public class Calc
     {
         if(input.equals("1"))
         {
-            System.out.println("Object is created succesfully!");
+            createSierp();
             return true;
-            //Verbindung zu Klasse Sier aufbauen
+            
         }
         if(input.equals("2"))
         {
@@ -58,5 +59,27 @@ public class Calc
         else
             System.out.println("Try again!");
             return false;
+    }
+
+
+    
+    private void createSierp()
+    {
+            sierp = new Sierp();
+
+            System.out.println("Enter a number for the canva size.");
+            System.out.println("First row and then column:");
+
+            int n = scanner.nextInt();
+            int m = scanner.nextInt();
+            
+            System.out.println("Enter a numbers for row, col and size:");
+            int row = scanner.nextInt();
+            int col = scanner.nextInt();
+            int size = scanner.nextInt();
+            
+            sierp.createCanva(n, m);
+            sierp.printTriangle(row,col,size);
+            sierp.printCanvas();
     }
 }
